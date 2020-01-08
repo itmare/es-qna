@@ -2,19 +2,19 @@
 
 <br><br>
 
-indexing할때 POST와 PUT의 차이점
---------------------------------
+indexing할때, POST와 PUT의 차이점
+---------------------------------
 
 -	PUT
 
 	-	전체 doc를 업데이트한다.
-	-	반복 수행시 하나의 document를 업데이트한다.
+	-	반복 수행시, 하나의 document를 업데이트한다.
 	-	PUT으로 생성된 document는 `_id`와 함께 생성되기 때문에 새로운 document의 추가는 없다.
 	-	output의 `_version`을 통해서 업데이트 횟수를 확인할 수 있다.
 
 -	POST
 
-	-	minor update를 수행한다. 보내진 field만 없데이트하고 document에 있는 다른 field들은 바뀌지 않는다.
+	-	minor update를 수행, 보내진 field만 없데이트하고 document에 있는 다른 field들은 바뀌지 않는다.
 	-	POST로 생성된 document는 `_id`없이도 실행 가능
 	-	`_id`없을경우 반복 실행시, 같은 내용의 document가 계속 추가된다.
 	-	es는 임의로 `_id`를 생성한다.
@@ -47,7 +47,7 @@ POST my_index {"mappings":{...}} # 에러
 es에서의 `_version`
 -------------------
 
--	transaction 처리 시 동시성 제어를 위해 사용된다.
+-	transaction 처리 시, 동시성 제어를 위해 사용된다.
 
 <br><br>
 
