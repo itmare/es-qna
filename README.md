@@ -1,3 +1,5 @@
+자문자답
+
 indexing할때, POST와 PUT의 차이점
 ---------------------------------
 
@@ -51,7 +53,7 @@ field type을 text? keyword? 혼돈의 카오스
 -----------------------------------------
 
 -	text: search를 위한 type
--	keyword: sort, aggregation을 위한 type
+-	keyword: sort 및 aggregation을 위한 type
 
 <br><br>
 
