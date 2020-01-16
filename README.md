@@ -786,8 +786,8 @@ Search Template
 -	mustache 언어를 사용해서 search request를 사전 작업한다.
 -	`source`안에 query 구조는 기본 search 구조에서 작성하면 편하다.
 
-```java
-// 기본 구조
+```shell
+# 기본 구조
 
 # search template 정의하기
 POST _scripts/<SEARCH_TEMPLATE_ID>
