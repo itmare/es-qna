@@ -59,8 +59,10 @@ field type을 text? keyword? 혼돈의 카오스
 
 <br><br>
 
-Analyzer
---------
+Cardinality Aggregation
+-----------------------
+
+-	distinct value의 수
 
 <br><br>
 
@@ -791,23 +793,23 @@ Search Template
 POST _scripts/<SEARCH_TEMPLATE_ID>
 {
 	"script": {
-        "lang": "mustache",
-        "source": """
-				{
-            "query": {
-                "match": {
-                    "title": "{{param1}}"
-                },
-								"range": {
-									"@timestamp": {
-										"gte": "{{param2}}",
-										"lte": "{{param3}}"
-									}
-								}
-            }
-        }
-				"""
+		"lang": "mustache",
+		"source": """
+		{
+			"query": {
+				"match": {
+					"title": "{{param1}}"
+				},
+				"range": {
+					"@timestamp": {
+						"gte": "{{param2}}",
+						"lte": "{{param3}}"
+					}
+				}
+      }
     }
+		"""
+  }
 }
 
 # search template 사용하여 쿼리하기
@@ -821,3 +823,8 @@ GET my_index/_search/template
 	}
 }
 ```
+
+<br><br>
+
+pipeline aggregation
+====================
