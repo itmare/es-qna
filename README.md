@@ -381,7 +381,7 @@ Dynamic Templates
 
 -	mapping시, 확실치 않은 field name에 대해 custom mapping 할 수 있게 해준다.
 
-\-
+-	(추가정리)
 
 <br><br>
 
@@ -826,5 +826,65 @@ GET my_index/_search/template
 
 <br><br>
 
+term vs. match
+==============
+
+-	match query
+
+	-	input string을 분석해서
+	-	match 쿼리는 text style field에 적합 (full-text search)
+
+-	term query
+
+	-	정확한 term을 매치시킨다.
+	-	keyword style field에 적합 (drop down 또는 ticking box에서 선택하는 옵션에 적용)
+
+-	term 쿼리는 input에 대한 분석이 없기 때문에 match 보다 빠르다.
+
+<br><br>
+
+security enable
+===============
+
+-	x-pack 사용시 user security를 설정할 수 있다.
+
+-	클러스터의 모든 elaticsearch와 kibana를 중지
+
+-	각 노드의 elasticsearch.yml에 다음을 추가`xpack.security.enabled: true`
+
+-	elasticsearch 재시작
+
+-	security_exception에 걸리는지 확인`curl 'localhost:9200/_cat/nodes?pretty'`
+
+-	credential 생성 (rpm 설치시 아래 경로에서 실행 가능)`/usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive`
+
+-	각 서비스별 password 설정 (elastic, kibana, logstash_system 등)
+
+-	방금 설정한 "kibana" 계정과 패스워드를 kibana.yml에 입력`elasticsearch.username: "kibana"``elasticsearch.password: "kibana"`
+
+-	kibana 재시작하고 설정한 elastic 계정으로 로그인 (elastic은 superuser 계정)
+
+-	Management category로 들어가보면 Security(with Users and Roles) sub-cateogry 추가되어 있음
+
+<br><br>
+
+search시, track_total_hits값이 disable로 설정
+=============================================
+
+-	7.0부터 hits > total > value에 default값이 10000으로 설정
+-	`track_total_hits`값으로 설정 가능 (true설정 시, 전체값 출력)
+
+<br><br>
+
 pipeline aggregation
 ====================
+
+<br><br>
+
+Join datatype (parent/child relation)
+=====================================
+
+<br><br>
+
+update_by_query
+===============
